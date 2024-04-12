@@ -46,6 +46,9 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe")
     private Set<Ingredient> listOfIngredients;
 
+    @Column(name = "visited_status")
+    private boolean visited;
+
     public Recipe() {
     }
 
