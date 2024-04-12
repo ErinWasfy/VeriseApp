@@ -16,7 +16,7 @@ import java.util.List;
 public interface RecipeRepository extends JpaRepository<Recipe,Long> {
 
     @Transactional(readOnly = true)
-    @Query(value="select top 20 recp.id,recp.recipe_name,recp.recipe_description,recp.recipe_meal_type,recp.created_date,recp.recipe_rate,recp.recipe_status,recp.visited_date from recipe recp where recp.recipe_status='Ready'",nativeQuery = true)
+    @Query(value="select top 20 recp.id,recp.recipe_name,recp.recipe_description,recp.recipe_meal_type,recp.created_date,recp.recipe_rate,recp.recipe_status,recp.visited_date,recp.visited_status from recipe recp where recp.recipe_status='Ready'",nativeQuery = true)
     List<Recipe> fetchAllAvailableRecipes();
 
     @Query(value="select recp.id,recp.recipe_name,recp.recipe_description,recp.recipe_meal_type,recp.created_date,recp.recipe_rate,recp.recipe_status,recp.visited_date from recipe recp where recp.recipe_status='Ready' and recp.recipe_name=?1",nativeQuery = true)
